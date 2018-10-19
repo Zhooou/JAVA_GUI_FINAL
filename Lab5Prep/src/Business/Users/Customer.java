@@ -13,12 +13,19 @@ import java.util.Date;
  * @author harshalneelkamal
  */
 public class Customer extends User implements Comparable<Customer>{
-
-//    private Date dateCreated;
+    private Date dateCreated;
     
-    public Customer(String password, String userName) {
+    public Customer(Date dateCreated,String password, String userName) {
         super(password, userName, "Customer");
-//        this.dateCreated = dateCreated;
+        this.dateCreated = dateCreated;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     @Override

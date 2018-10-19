@@ -8,6 +8,7 @@ package Business;
 import Business.Abstract.User;
 import Business.Users.Customer;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ import java.util.List;
 public class CustomerDirectory {
     
     private List<User> customerList;
+    //private 
     
     public CustomerDirectory(){
         customerList = new ArrayList<>();
@@ -30,8 +32,8 @@ public class CustomerDirectory {
         this.customerList = supplierList;
     }
  
-    public void add(String userName, String password){
-        Customer customer = new Customer(password, userName);
+    public void add(Date dateCreated,String userName, String password){
+        Customer customer = new Customer(dateCreated,password, userName);
         this.customerList.add(customer);
     }
 }

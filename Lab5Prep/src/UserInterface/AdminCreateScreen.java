@@ -184,7 +184,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Tips: User name should begin with letter. After \"@\", 3 saperate parts in email domin");
+        jLabel4.setText("Tips: User name should begin with letters or nembers. After \"@\", 3 saperate parts in email domin");
 
         jLabel5.setText("          is allowed at most. Password can only contain letters numbers and \"+_$\".");
 
@@ -223,7 +223,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(110, 110, 110)))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +234,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -251,7 +251,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(radioSupplier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreate)
                 .addContainerGap())
@@ -281,7 +281,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 //            return;
 //        }
         if(radioCustomer.isSelected()){
-            admin.getCustDir().add( txtUser.getText(),txtPword.getText());
+            admin.getCustDir().add(new Date(),txtUser.getText(),txtPword.getText());
         }
         else{
             admin.getSuppDir().add(txtUser.getText(),txtPword.getText());
@@ -303,8 +303,11 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     }
       private Boolean checkUsernamePattern(){
         String usernameRegex = "[a-zA-Z]+[a-zA-Z0-9_]*@([A-Za-z0-9]+.)+[A-Za-z0-9]+";
-        String usernameRegex1 = "[a-zA-z]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+.){1,2}[A-Za-z0-9]{1,}";
-        boolean b = Pattern.matches(usernameRegex1, txtUser.getText());
+
+        String usernameRegex1 =  "[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+.){1,2}[A-Za-z0-9]{1,}";;
+          //Matcher m = p.matcher(txtUser.getText());
+         //  boolean b = m.find();
+ boolean b = Pattern.matches(usernameRegex1, txtUser.getText());
         
         return !b;
     }

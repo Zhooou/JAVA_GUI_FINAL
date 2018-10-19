@@ -62,7 +62,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +76,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="radioSupplier" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblResult" pref="463" max="32767" attributes="0"/>
+              <Component id="lblResult" pref="475" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -207,7 +207,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tips: User name should begin with letter. After &quot;@&quot;, 3 saperate parts in email domin"/>
+        <Property name="text" type="java.lang.String" value="Tips: User name should begin with letters or nembers. After &quot;@&quot;, 3 saperate parts in email domin"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
