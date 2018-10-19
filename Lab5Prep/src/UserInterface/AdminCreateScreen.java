@@ -67,7 +67,10 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             return;
         }
         
-        
+          if(checkUsernamePattern()){
+            lblResult.setText("Wrong username format");
+            return;
+        }
         btnCreate.setEnabled(true);
         lblResult.setText("You can create now");
     }
@@ -281,7 +284,14 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         
         return b;
     }
-    
+      private Boolean checkUsernamePattern(){
+        Pattern p = Pattern.compile("^[a-zA-Z0-9@][a-zA-Z0-9@_]*$");
+        //^[A-Za-z0-9]{1}[A-Za-z0-9_]+@[A-Za-z0-9_]+
+        Matcher m = p.matcher(txtUser.getText());
+        boolean b = m.find();
+        
+        return !b;
+    }
     
     private void radioCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCustomerActionPerformed
         // TODO add your handling code here:

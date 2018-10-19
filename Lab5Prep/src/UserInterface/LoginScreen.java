@@ -111,8 +111,11 @@ public class LoginScreen extends javax.swing.JPanel {
 
     private void comboUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUserActionPerformed
         // TODO add your handling code here:
-        User user = (User) comboUser.getSelectedItem();
-        txtTitle.setText("User: "+user.getUserName()+" Login Screen");
+      User user = (User) comboUser.getSelectedItem();
+//        txtTitle.setText("Supplier: "+upplier.getUserName()+" Login Screen");
+        
+    txtTitle.setText("User: "+ user.getRole()  +" Login Screen");
+        
     }//GEN-LAST:event_comboUserActionPerformed
 
     
