@@ -66,10 +66,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             lblResult.setText("Wrong password format");
             return;
         }
-        if(checkUsernamePattern()){
-            lblResult.setText("Wrong username format");
-            return;
-        }
+        
         
         btnCreate.setEnabled(true);
         lblResult.setText("You can create now");
@@ -283,15 +280,6 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         boolean b = m.find();
         
         return b;
-    }
-    
-    private Boolean checkUsernamePattern(){
-        Pattern p = Pattern.compile("^[a-zA-Z0-9@][a-zA-Z0-9@_]*$");
-        //^[A-Za-z0-9]{1}[A-Za-z0-9_]+@[A-Za-z0-9_]+
-        Matcher m = p.matcher(txtPword.getText());
-        boolean b = m.find();
-        
-        return !b;
     }
     
     
