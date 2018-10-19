@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSplitPane1" pref="393" max="32767" attributes="0"/>
+              <Component id="jSplitPane1" pref="1178" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -37,7 +37,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSplitPane1" max="32767" attributes="0"/>
+              <Component id="jSplitPane1" pref="908" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,7 +85,7 @@
                       <Component id="btnSupplier" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnCustomer" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="163" max="32767" attributes="0"/>
+                      <EmptySpace pref="729" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

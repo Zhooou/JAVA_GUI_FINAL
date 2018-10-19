@@ -66,6 +66,11 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             lblResult.setText("Wrong password format");
             return;
         }
+        if(checkUsernamePattern()){
+            lblResult.setText("Wrong username format");
+            return;
+        }
+        
         btnCreate.setEnabled(true);
         lblResult.setText("You can create now");
     }
@@ -98,6 +103,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
+        txtUser.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -109,6 +115,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
+        txtPword.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         txtPword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPwordActionPerformed(evt);
@@ -120,27 +127,31 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
+        txtRePword.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         txtRePword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRePwordActionPerformed(evt);
             }
         });
         txtRePword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRePwordKeyTyped(evt);
-            }
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtRePwordKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtRePwordKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyTyped(evt);
+            }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel1.setText("username:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel2.setText("password:");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel3.setText("re-enter password :");
 
         radioGroup.add(radioCustomer);
@@ -186,20 +197,20 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPword, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtRePword, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(35, 35, 35)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(radioSupplier)
-                                        .addComponent(radioCustomer)))))
+                                        .addComponent(radioCustomer)))
+                                .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                                .addComponent(txtPword)
+                                .addComponent(txtRePword)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(17, 17, 17)
                             .addComponent(btnBack))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +234,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(radioSupplier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreate)
                 .addContainerGap())
@@ -253,10 +264,10 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 //            return;
 //        }
         if(radioCustomer.isSelected()){
-            admin.getCustDir().add(txtPword.getText(), txtUser.getText());
+            admin.getCustDir().add( txtUser.getText(),txtPword.getText());
         }
         else{
-            admin.getSuppDir().add(txtPword.getText(), txtUser.getText());
+            admin.getSuppDir().add(txtUser.getText(),txtPword.getText());
         }
         
         txtUser.setText("");
@@ -273,6 +284,16 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         
         return b;
     }
+    
+    private Boolean checkUsernamePattern(){
+        Pattern p = Pattern.compile("^[a-zA-Z0-9@][a-zA-Z0-9@_]*$");
+        //^[A-Za-z0-9]{1}[A-Za-z0-9_]+@[A-Za-z0-9_]+
+        Matcher m = p.matcher(txtPword.getText());
+        boolean b = m.find();
+        
+        return !b;
+    }
+    
     
     private void radioCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCustomerActionPerformed
         // TODO add your handling code here:

@@ -73,13 +73,13 @@ public class LoginScreen extends javax.swing.JPanel {
                         .addGap(150, 150, 150)
                         .addComponent(btnSubmit))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(161, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtPword)
                                 .addComponent(comboUser, 0, 166, Short.MAX_VALUE))
                             .addComponent(txtTitle))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +92,7 @@ public class LoginScreen extends javax.swing.JPanel {
                 .addComponent(txtPword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSubmit)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(419, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,13 +111,16 @@ public class LoginScreen extends javax.swing.JPanel {
 
     private void comboUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUserActionPerformed
         // TODO add your handling code here:
+        User user = (User) comboUser.getSelectedItem();
+        txtTitle.setText("User: "+user.getUserName()+" Login Screen");
     }//GEN-LAST:event_comboUserActionPerformed
 
     
     private void initialize(){
         //text should either be "Supplier Login Screen" OR "Customer Login Screen"
         //Based on the selection
-        txtTitle.setText("****** Login Screen");
+        
+        txtTitle.setText("Login Screen");
         comboUser.removeAllItems();
         //only customer or suppliers should be listed based on the selection
     }
