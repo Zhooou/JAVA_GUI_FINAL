@@ -10,6 +10,8 @@ import Business.Users.Admin;
 import Business.Users.Customer;
 import Business.Users.Supplier;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -114,18 +116,28 @@ public class AdminMainScreen extends javax.swing.JPanel {
     public void populate(){
         DefaultTableModel dtm1 = (DefaultTableModel)tableSup.getModel();
         dtm1.setRowCount(0);
+        ArrayList<Supplier> sList = new ArrayList();
         for(User u : admin.getSuppDir().getSupplierList()){
-            Supplier s = (Supplier)u;
+            sList.add((Supplier)u);
+            
+        }
+        Collections.sort(sList);
+        for(Supplier s : sList){
             Object[] row = new Object[dtm1.getColumnCount()];
             row[0]=s;
             row[1]=s.getDirectory().getProductList().size();
             dtm1.addRow(row);
         }
-
+        ArrayList<Customer> cList = new ArrayList();
+        
         DefaultTableModel dtm2 = (DefaultTableModel)tableCust.getModel();
         dtm2.setRowCount(0);
         for(User u : admin.getCustDir().getCustomerList()){
-            Customer c = (Customer)u;
+            cList.add((Customer)u);
+            
+        }
+        Collections.sort(cList);
+        for(Customer c : cList){
             Object[] row = new Object[dtm2.getColumnCount()];
             row[0]=c;
             row[1]=c.getUserName();
