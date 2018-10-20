@@ -67,7 +67,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             return;
         }
         
-          if(checkUsernamePattern()){
+        if(checkUsernamePattern()){
             lblResult.setText("Wrong username format");
             return;
         }
@@ -193,25 +193,17 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnBack)
-                        .addGap(124, 124, 124)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(127, 127, 127)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(35, 35, 35)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,10 +211,20 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                                             .addComponent(radioCustomer)))
                                     .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                                     .addComponent(txtPword)
-                                    .addComponent(txtRePword)))
+                                    .addComponent(txtRePword)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(110, 110, 110)))))
+                                .addGap(110, 110, 110))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnBack)
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -252,9 +254,9 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                 .addComponent(radioSupplier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreate)
-                .addContainerGap())
+                .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -301,13 +303,12 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         
         return b;
     }
-      private Boolean checkUsernamePattern(){
-        String usernameRegex = "[a-zA-Z]+[a-zA-Z0-9_]*@([A-Za-z0-9]+.)+[A-Za-z0-9]+";
+    private Boolean checkUsernamePattern(){
+        String usernameRegex="[a-zA-Z]+[a-zA-Z0-9_]*@([A-Za-z0-9]+.)+[A-Za-z0-9]+";
 
-        String usernameRegex1 =  "[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+.){1,2}[A-Za-z0-9]{1,}";;
-          //Matcher m = p.matcher(txtUser.getText());
-         //  boolean b = m.find();
- boolean b = Pattern.matches(usernameRegex1, txtUser.getText());
+        String usernameRegex1="[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+){1,2}[A-Za-z0-9]{1,}";;
+         
+        boolean b = Pattern.matches(usernameRegex1, txtUser.getText());
         
         return !b;
     }
