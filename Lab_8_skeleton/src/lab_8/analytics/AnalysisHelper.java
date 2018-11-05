@@ -22,17 +22,121 @@ import lab_8.entities.User;
  * @author harshalneelkamal
  */
 public class AnalysisHelper {
-    
-    
+      
     public void userWithMostLikes(){
-        
-        
+        Map<Integer,Integer> userLikecount = new HashMap<>();
+           Map<Integer,User> users = DataStore.getInstance().getUsers();
+           for(User user : users.values()){
+               for(Comment c:user.getComments()){
+                   int likes = 0;
+                   if(userLikecount.containsKey(user.getId())){
+                       likes = userLikecount.get(user.getId());
+                      
+                   }
+                    likes+= c.getLikes();
+                    userLikecount.put(user.getId(), likes);
+               }
+           }
+        int max = 0;
+         int maxId = 0;
+         for(int id: userLikecount.keySet()){
+             if(userLikecount.get(id)> max){
+                 max = userLikecount.get(id);
+                 maxId = id;
+                 
+             }
+         }
+         System.out.println("User with most likes:"+max+"\n"+users.get(maxId));
     }
     
     public void getFiveMostLikedComment(){
+        Map<Integer,Comment> comments = DataStore.getInstance().getComments();
         
-        
+        List<Comment> commentList = new ArrayList<>(comments.values());
+        Collections.sort(commentList,new Comparator<Comment>(){
+        @Override
+        public int compare(Comment c1, Comment c2){
+            return c2.getLikes() - c1.getLikes();
+        }
+    });
+        System.out.println("5 most liked comments");
+        for(int i = 0;i<5;i++){
+        System.out.println(commentList.get(i));
     }
+    }
+    
+       public void getPostMostLikedComment(){
+                   Map<Integer,Integer> postLikecount = new HashMap<>();
+           Map<Integer,Post> posts = DataStore.getInstance().getPosts();
+
+           for(Post post : posts.values()){
+             for(Comment c:post.getComments()){
+                   int likes = 0;
+                   if(postLikecount.containsKey(post.getPostId())){
+                      likes = postLikecount.get(post.getPostId());
+                       
+                   }
+                   likes+= c.getLikes();
+                   postLikecount.put(post.getPostId(), likes);
+             }
+           }
+             int max = 0;
+         int maxId = 0;
+         for(int id: postLikecount.keySet()){
+             if(postLikecount.get(id)> max){
+                 max = postLikecount.get(id);
+                 maxId = id;
+       }
+         }
+     System.out.println("Post with most likes:"+posts.get(maxId).getPostId()+"\n"+"likes number:"+max);
+
+       }   
+       
+     public void getPostMostComment(){
+         List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
+         
+//            Map<Integer,Comment> comments = DataStore.getInstance().getComments();
+//        
+//        List<Comment> commentList = new ArrayList<>(comments.values());
+//        Collections.sort(commentList,new Comparator<Comment>(){
+//        @Override
+//        public int compare(Comment c1, Comment c2){
+//            return c2.getLikes() - c1.getLikes();
+//        }
+//    });
+//        System.out.println("5 most liked comments");
+//        for(int i = 0;i<5;i++){
+//        System.out.println(commentList.get(i));
+//    }
+           Map<Integer,Integer> postComentcount = new HashMap<>();
+           Map<Integer,Post> posts = DataStore.getInstance().getPosts();
+ for(Post post : posts.values()){
+   int commentCount = 0;
+         if(postComentcount.containsKey(post.getPostId())){
+                      commentCount = postComentcount.get(post.getPostId());
+                       
+                   }
+         
+         for(Comment c : post.getComments())
+             commentCount++;
+          
+             postComentcount.put(post.getPostId(), commentCount);
+
+     
+ }
+         int max = 0;
+         int maxId = 0;
+         for(int id: postComentcount.keySet()){
+             if(postComentcount.get(id)> max){
+                 max = postComentcount.get(id);
+                 maxId = id;
+       }   
+   
+}         
+    System.out.println("Post with most comments:"+posts.get(maxId).getPostId()+"\n"+"Comments number:"+max);
+     }
+
+  
     
     public void getAverageLikesPerComment(){
         Map<Integer,Comment> comments = DataStore.getInstance().getComments();
