@@ -147,7 +147,7 @@ public class AnalysisHelper {
             likes = likes+number;
         }
         int averageNumber = likes/length;
-        System.out.println("Average Number Per Comment: -------------------------- ");
+        System.out.print("Average Number Per Comment: ");
         System.out.println(averageNumber);
     }
     
@@ -178,6 +178,78 @@ public class AnalysisHelper {
         });
         for(int i = 0; i < 5; i++){
             System.out.println("User ID: "+rankList.get(i).getKey() + " Post Counts: "+ rankList.get(i).getValue());
+        }
+    }
+    
+    public void getTop5InactiveUsersBasedOnComments(){
+        List<Comment> commentList = new ArrayList(DataStore.getInstance().getComments().values());
+        List<User> userList = new ArrayList(DataStore.getInstance().getUsers().values());
+        Map<Integer, Integer> userActiveMap = new HashMap();
+        for(User u: userList){
+            userActiveMap.put(u.getId(), 0);
+        }
+        for(Comment p: commentList){
+            int commentCount = 0;
+            if(userActiveMap.containsKey(p.getUserId())){
+                commentCount = userActiveMap.get(p.getUserId());
+            }
+            commentCount++;
+            userActiveMap.put(p.getUserId(), commentCount);
+        }
+        System.out.println(userActiveMap);
+        List<Map.Entry<Integer, Integer>> rankList = new ArrayList(userActiveMap.entrySet());
+        Collections.sort(rankList, new Comparator<Map.Entry<Integer, Integer>>(){
+
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+            
+        });
+        for(int i = 0; i < 5; i++){
+            System.out.println("User ID: "+rankList.get(i).getKey() + " Comment Counts: "+ rankList.get(i).getValue());
+        }
+    }
+    
+    public void getTop5InactiveUsersOverall(){
+        List<Comment> commentList = new ArrayList(DataStore.getInstance().getComments().values());
+        List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
+        List<User> userList = new ArrayList(DataStore.getInstance().getUsers().values());
+        Map<Integer, Integer> userActiveMap = new HashMap();
+        for(User u: userList){
+            userActiveMap.put(u.getId(), 0);
+        }
+        for(Comment p: commentList){
+            int Count = 0;
+            if(userActiveMap.containsKey(p.getUserId())){
+                Count = userActiveMap.get(p.getUserId());
+            }
+            Count++;
+            Count = Count + p.getLikes();
+            userActiveMap.put(p.getUserId(), Count);
+        }
+        
+        for(Post p: postList){
+            int Count = 0;
+            if(userActiveMap.containsKey(p.getUserId())){
+                Count = userActiveMap.get(p.getUserId());
+            }
+            Count++;
+            
+            userActiveMap.put(p.getUserId(), Count);
+        }
+        System.out.println(userActiveMap);
+        List<Map.Entry<Integer, Integer>> rankList = new ArrayList(userActiveMap.entrySet());
+        Collections.sort(rankList, new Comparator<Map.Entry<Integer, Integer>>(){
+
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }
+            
+        });
+        for(int i = 0; i < 5; i++){
+            System.out.println("User ID: "+rankList.get(i).getKey() + " Overall Counts: "+ rankList.get(i).getValue());
         }
     }
 }
