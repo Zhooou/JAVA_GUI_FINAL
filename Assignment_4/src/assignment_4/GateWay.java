@@ -33,8 +33,14 @@ public class GateWay {
         
     }
     
-    public void readData(){
-        
+    public void readData() throws IOException{
+        String[] row;
+        while((row = prodReader.getNextRow()) != null ){
+            
+        }
+        while((row = orderReader.getNextRow()) != null ){
+            
+        }
     }
     
     public void readRow() throws IOException{
