@@ -9,6 +9,9 @@ package assignment_4.entities;
  *
  * @author harshalneelkamal
  */
-public class SalesPerson {
+public class SalesPerson extends Person{
     
+    public SalesPerson(int id){
+        super(id);
+    }    
 }

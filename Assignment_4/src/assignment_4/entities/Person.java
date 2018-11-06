@@ -7,14 +7,20 @@ package assignment_4.entities;
 
 /**
  *
- * @author harshalneelkamal
+ * @author runyangzhou
  */
-public class Customer extends Person{
+public abstract class Person {
+    int id;
     
-    public Customer(int id){
-        super(id);
+    public Person(int id){
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
     }
 
-    
-    
+    public void setId(int id) {
+        this.id = id;
+    }
 }
