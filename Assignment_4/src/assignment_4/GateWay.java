@@ -6,6 +6,8 @@
 package assignment_4;
 
 import assignment_4.anlysis.AnlysisHelper;
+import assignment_4.anlysis.DataStore;
+import assignment_4.entities.Product;
 import java.io.IOException;
 
 /**
@@ -36,14 +38,18 @@ public class GateWay {
     public void readData() throws IOException{
         String[] row;
         while((row = prodReader.getNextRow()) != null ){
-            
+            generateProd(row);
         }
         while((row = orderReader.getNextRow()) != null ){
             
         }
     }
-    
-    public void readRow() throws IOException{
-        
+
+    public void generateProd(String[] row){
+        int productId = Integer.parseInt(row[0]);
+        int minPrice = Integer.parseInt(row[1]);
+        int maxPrice = Integer.parseInt(row[2]);
+        int targetPrice = Integer.parseInt(row[3]);
+        DataStore.getInstance().getProducts().put(productId, new Product(productId, minPrice, maxPrice, targetPrice));
     }
 }

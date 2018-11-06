@@ -15,6 +15,4 @@ public class Customer extends Person{
         super(id);
     }
 
-    
-    
 }
