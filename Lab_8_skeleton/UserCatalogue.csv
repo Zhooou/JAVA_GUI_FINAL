@@ -1,24 +1,11 @@
 User-Id,First-Name,Last-Name,Rating
-<<<<<<< HEAD
-0,FirstName 0,LastName 0,92
-1,FirstName 1,LastName 1,24
-2,FirstName 2,LastName 2,243
-3,FirstName 3,LastName 3,241
-4,FirstName 4,LastName 4,156
-5,FirstName 5,LastName 5,228
-6,FirstName 6,LastName 6,108
-7,FirstName 7,LastName 7,123
-8,FirstName 8,LastName 8,89
-9,FirstName 9,LastName 9,13
-=======
-0,FirstName 0,LastName 0,76
-1,FirstName 1,LastName 1,165
-2,FirstName 2,LastName 2,172
-3,FirstName 3,LastName 3,89
-4,FirstName 4,LastName 4,265
-5,FirstName 5,LastName 5,199
-6,FirstName 6,LastName 6,237
-7,FirstName 7,LastName 7,91
-8,FirstName 8,LastName 8,206
-9,FirstName 9,LastName 9,164
->>>>>>> refs/remotes/origin/master
+0,FirstName 0,LastName 0,98
+1,FirstName 1,LastName 1,75
+2,FirstName 2,LastName 2,273
+3,FirstName 3,LastName 3,29
+4,FirstName 4,LastName 4,126
+5,FirstName 5,LastName 5,65
+6,FirstName 6,LastName 6,92
+7,FirstName 7,LastName 7,279
+8,FirstName 8,LastName 8,62
+9,FirstName 9,LastName 9,290
