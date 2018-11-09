@@ -5,6 +5,9 @@
  */
 package assignment_4.entities;
 
+import java.util.List;
+
+
 /**
  *
  * @author harshalneelkamal

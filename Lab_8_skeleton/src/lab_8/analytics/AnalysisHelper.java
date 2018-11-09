@@ -78,29 +78,21 @@ public class AnalysisHelper {
     }
     
        public void getPostMostLikedComment(){
-                   Map<Integer,Integer> postLikecount = new HashMap<>();
-           Map<Integer,Post> posts = DataStore.getInstance().getPosts();
-
-           for(Post post : posts.values()){
-             for(Comment c:post.getComments()){
-                   int likes = 0;
-                   if(postLikecount.containsKey(post.getPostId())){
-                      likes = postLikecount.get(post.getPostId());
-                       
-                   }
-                   likes+= c.getLikes();
-                   postLikecount.put(post.getPostId(), likes);
-             }
-           }
-             int max = 0;
-         int maxId = 0;
-         for(int id: postLikecount.keySet()){
-             if(postLikecount.get(id)> max){
-                 max = postLikecount.get(id);
-                 maxId = id;
-       }
-         }
-     System.out.println("Post ID with most likes:"+posts.get(maxId).getPostId()+"\n"+"likes number:"+max);
+                   List<Comment> cList = new ArrayList(DataStore.getInstance().getComments().values());
+        Collections.sort(cList, new Comparator<Comment>(){
+            @Override
+            public int compare(Comment o1, Comment o2) {
+                return - o1.getLikes() + o2.getLikes();
+            }
+            
+        });
+//        System.out.println(cList);
+        List<Post> pList = new ArrayList(DataStore.getInstance().getPosts().values());
+        for(Post p : pList){
+            if(p.getComments().contains(cList.get(0))){
+                System.out.println("Post With Most Liked Comment id :" + p.getPostId());
+            }
+        }
 
        }   
        
@@ -166,7 +158,7 @@ public class AnalysisHelper {
             
         });
         for(int i = 0; i < 5; i++){
-            System.out.println("User ID: "+rankList.get(i).getKey() + " Top5 InactiveUsers based Post Counts: "+ rankList.get(i).getValue());
+            System.out.println(" Top "+(i+1)+" "+"User ID: "+rankList.get(i).getKey() + " Top5 InactiveUsers based Post Counts: "+ rankList.get(i).getValue());
         }
     }
     
@@ -196,7 +188,7 @@ public class AnalysisHelper {
             
         });
         for(int i = 0; i < 5; i++){
-            System.out.println("User ID: "+rankList.get(i).getKey() + " Top5 InactiveUsers based Comment Counts: "+ rankList.get(i).getValue());
+            System.out.println(" Top "+(i+1)+" "+"User ID:" +rankList.get(i).getKey() + " InactiveUsers based Comment Counts: "+ rankList.get(i).getValue());
         }
     }
     
@@ -238,7 +230,7 @@ public class AnalysisHelper {
             
         });
         for(int i = 0; i < 5; i++){
-            System.out.println("User ID: "+rankList.get(i).getKey() + " Top5 InactiveUsers Overall Counts: "+ rankList.get(i).getValue());
+            System.out.println(" Top "+(i+1)+" "+"User ID: "+rankList.get(i).getKey() + " InactiveUsers Overall Counts: "+ rankList.get(i).getValue());
         }
     }
     
@@ -279,7 +271,7 @@ public class AnalysisHelper {
             
         });
         for(int i = 0; i < 5; i++){
-            System.out.println("User ID: "+rankList.get(i).getKey() + " Top5 ProActiveUsers Overall Counts: "+ rankList.get(i).getValue());
+            System.out.println(" Top "+(i+1)+" "+"User ID: "+rankList.get(i).getKey() + " ProActiveUsers Overall Counts: "+ rankList.get(i).getValue());
         
         }
 }

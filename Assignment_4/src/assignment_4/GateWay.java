@@ -37,7 +37,7 @@ public class GateWay {
         GateWay gateway_Instance = new GateWay();
         gateway_Instance.readData();
         
-        System.out.println(DataStore.getInstance().getProducts().get(0).getMaxPrice());
+        //System.out.println(DataStore.getInstance().getProducts().get(0).getMaxPrice());
     }
     
     public void readData() throws IOException{
@@ -50,6 +50,7 @@ public class GateWay {
             generateCustomer(row);
             generateSalesPerson(row);
         }
+        runAnalysis();
     }
 
     public void generateProd(String[] row){
@@ -86,4 +87,11 @@ public class GateWay {
         int salesPerosnId = Integer.parseInt(row[4]);
         DataStore.getInstance().getSalesPersons().put(salesPerosnId, new SalesPerson(salesPerosnId));
     }
+    
+     private void runAnalysis(){
+     helper.getTop3PopularProduct();
+     helper.getTop3Customer();
+     helper.getTop3Salesman();
+     }
+    
 }
