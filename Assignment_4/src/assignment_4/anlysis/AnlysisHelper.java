@@ -46,7 +46,7 @@ public class AnlysisHelper {
         });
         System.out.println(rankList);
         for(int i = 0; i < 3; i++){
-            System.out.println("Product Id: " + rankList.get(i).getKey()+ " Total sales quantity: " + rankList.get(i).getValue());
+            System.out.println("Top "+ (i+1) +" popular Product Id: " + rankList.get(i).getKey()+ " Total sales quantity: " + rankList.get(i).getValue());
         }
     }
     
@@ -75,7 +75,7 @@ public class AnlysisHelper {
         
         System.out.println(rankList);
         for(int i = 0; i < 3; i++){
-            System.out.println("Top "+ (i+1) + " Customer Id: " + rankList.get(i).getKey()+ " Total cusume: " + rankList.get(i).getValue());
+            System.out.println("Top "+ (i+1) + " Customer Id: " + rankList.get(i).getKey()+ " Total consumption: " + rankList.get(i).getValue());
         }
     }
     
