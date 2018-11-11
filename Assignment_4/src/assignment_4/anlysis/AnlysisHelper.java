@@ -86,13 +86,13 @@ public class AnlysisHelper {
          
         for(Order o : DataStore.getInstance().getOrders().values()){
             int sales = 0;
-            if(salesPersonSales.containsKey(o.getCustomerId()))
-                sales = salesPersonSales.get(o.getCustomerId());
+            if(salesPersonSales.containsKey(o.getSalesPerosnId()))
+                sales = salesPersonSales.get(o.getSalesPerosnId());
             Item item = o.getItem();
             Product p = DataStore.getInstance().getProducts().get(item.getProductId());
-            int TargetSales = p.getTargetPrice();
-            sales = sales + item.getQuantity() * (item.getSalesPrice() - TargetSales);
-            salesPersonSales.put(o.getCustomerId(), sales);
+            int MinSales = p.getMinPrice();
+            sales = sales + item.getQuantity() * (item.getSalesPrice() - MinSales);
+            salesPersonSales.put(o.getSalesPerosnId(), sales);
         }
         List<Map.Entry<Integer, Integer>> rankList = new ArrayList(salesPersonSales.entrySet());
         Collections.sort(rankList, new Comparator<Map.Entry<Integer, Integer>>(){
