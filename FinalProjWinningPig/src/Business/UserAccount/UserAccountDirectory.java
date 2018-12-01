@@ -5,6 +5,7 @@
  */
 package Business.UserAccount;
 
+import Business.EcoSystem;
 import Business.Role.Role;
 import java.util.ArrayList;
 import Business.Person.Person;
@@ -15,7 +16,11 @@ import Business.Person.Person;
  */
 public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
-
+    
+    public UserAccountDirectory(){
+        this.userAccountList = new ArrayList();
+    }
+    
     public ArrayList<UserAccount> getUserAccountList() {
         return userAccountList;
     }
@@ -43,6 +48,9 @@ public class UserAccountDirectory {
     }
     
     public boolean checkIfUsernameIsUnique(String username){
+        
+        
+        
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))
                 return false;

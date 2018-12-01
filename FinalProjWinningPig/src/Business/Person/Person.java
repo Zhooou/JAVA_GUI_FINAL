@@ -43,5 +43,8 @@ public class Person {
         Person.count = count;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.name;
+    }
 }

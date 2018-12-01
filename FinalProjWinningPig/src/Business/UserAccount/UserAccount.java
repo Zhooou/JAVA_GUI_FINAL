@@ -64,5 +64,8 @@ public class UserAccount {
         this.workQueue = workQueue;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.username;
+    }
 }

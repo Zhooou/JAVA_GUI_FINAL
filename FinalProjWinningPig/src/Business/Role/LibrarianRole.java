@@ -7,8 +7,12 @@ package Business.Role;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.LibrarianOrganization;
 import Business.Organization.Organization;
+import Business.Organization.StudentOrganization;
 import Business.UserAccount.UserAccount;
+import Userinterface.Librarian.LibrarianWorkAreaJPanel;
+import Userinterface.Student.StudentWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +23,7 @@ public class LibrarianRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new LibrarianWorkAreaJPanel(userProcessContainer, account, (LibrarianOrganization)organization, enterprise); 
     }
     
 }

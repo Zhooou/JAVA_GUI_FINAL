@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Business.DB4OUtil;
-import Business.ConfigureSystem;
+import Business.ConfigureASystem;
 import Business.EcoSystem;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
@@ -67,7 +67,7 @@ public class DB4OUtil {
         ObjectSet<EcoSystem> systems = conn.query(EcoSystem.class); // Change to the object you want to save
         EcoSystem system;
         if (systems.size() == 0){
-            system = ConfigureSystem.configure();  // If there's no System in the record, create a new one
+            system = ConfigureASystem.configure();  // If there's no System in the record, create a new one
         }
         else{
             system = systems.get(systems.size() - 1);

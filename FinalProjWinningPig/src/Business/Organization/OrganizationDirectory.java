@@ -32,8 +32,8 @@ public class OrganizationDirectory {
             organization = new StudentOrganization();
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Organization.Type.TA.getValue())){
-            organization = new TAOrganization();
+        else if (type.getValue().equals(Organization.Type.Tutor.getValue())){
+            organization = new TutorOrganization();
             organizationList.add(organization);
         }
         return organization;

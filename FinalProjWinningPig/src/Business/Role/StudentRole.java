@@ -8,7 +8,9 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.StudentOrganization;
 import Business.UserAccount.UserAccount;
+import Userinterface.Student.StudentWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,11 +21,7 @@ public class StudentRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new StudentWorkAreaJPanel(userProcessContainer, account, (StudentOrganization)organization, enterprise); 
     }
-    
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-//        return StudentWorkAreaJPanel();
-//    }
     
 }

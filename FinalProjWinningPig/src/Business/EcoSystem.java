@@ -5,6 +5,7 @@
  */
 package Business;
 
+import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.Role;
@@ -25,6 +26,20 @@ public class EcoSystem extends Organization{
         return business;
     }
 
+    public ArrayList<Network> getNetworkList() {
+        return networkList;
+    }
+
+    public void setNetworkList(ArrayList<Network> networkList) {
+        this.networkList = networkList;
+    }
+
+    public Network createAndAddNetwork(){
+        Network network=new Network();
+        networkList.add(network);
+        return network;
+    }
+    
     public EcoSystem() {
         super(null);
         networkList=new ArrayList<Network>();
@@ -41,7 +56,15 @@ public class EcoSystem extends Organization{
             return false;
         }
         for(Network network:networkList){
-            
+            for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
+                
+                if(!enterprise.getUserAccountDirectory().checkIfUsernameIsUnique(userName))
+                    return false;
+                
+                for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList())
+                    if(!organization.getUserAccountDirectory().checkIfUsernameIsUnique(userName))
+                        return false;
+            }
         }
         return true;
     }
