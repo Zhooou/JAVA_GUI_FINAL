@@ -25,7 +25,6 @@ public class AnlysisHelper {
     
     public void top3MostPopProd(){
         Map<Integer, Integer> prodSales = new HashMap();
-        
         for(Product p : DataStore.getInstance().getProducts().values())
             prodSales.put(p.getProductId(), 0);
         
@@ -33,12 +32,14 @@ public class AnlysisHelper {
             int quantity = 0;
             if(prodSales.containsKey(o.getItem().getProductId()))
                 quantity = prodSales.get(o.getItem().getProductId());
-            quantity = quantity + o.getItem().getQuantity();
+   //         quantity = quantity + o.getItem().getQuantity();
+           quantity = quantity + o.getItem().getQuantity() * o.getItem().getSalesPrice();
             prodSales.put(o.getItem().getProductId(), quantity);
         }
-        List<Map.Entry<Integer, Integer>> rankList = new ArrayList(prodSales.entrySet());
+        List<Map.Entry<Integer, Integer>> rankList = new ArrayList(prodSales.entrySet()); 
+        //对list进行排序Map.Entry<Integer, Integer>
         Collections.sort(rankList, new Comparator<Map.Entry<Integer, Integer>>(){
-
+        
             @Override
             public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
                 return -o1.getValue().compareTo(o2.getValue());

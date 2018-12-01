@@ -96,7 +96,7 @@ public class AnalysisHelper {
        }   
        
      public void getPostMostComment(){
-         List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
+       //  List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
          
 
            Map<Integer,Integer> postComentcount = new HashMap<>();
@@ -132,7 +132,7 @@ public class AnalysisHelper {
    
     
     public void getTop5InactiveUsersBasedOnPosts(){
-        List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
+       List<Post> postList = new ArrayList(DataStore.getInstance().getPosts().values());
         List<User> userList = new ArrayList(DataStore.getInstance().getUsers().values());
         Map<Integer, Integer> userActiveMap = new HashMap();
         for(User u: userList){

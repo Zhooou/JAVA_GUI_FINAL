@@ -26,9 +26,12 @@ public class GateWay {
     
     public GateWay() throws IOException{
         DataGenerator generator = DataGenerator.getInstance();
+//        
+//        prodReader = new DataReader(generator.getProductCataloguePath());
+//        orderReader = new DataReader(generator.getOrderFilePath());
         
-        prodReader = new DataReader(generator.getProductCataloguePath());
-        orderReader = new DataReader(generator.getOrderFilePath());
+        prodReader = new DataReader("./ProductCatalogue1.csv");
+        orderReader = new DataReader("./SalesData1.csv");
         
         helper = new AnlysisHelper();
     }

@@ -136,14 +136,14 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
         txtRePword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyTyped(evt);
+            }
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtRePwordKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtRePwordKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRePwordKeyTyped(evt);
             }
         });
 
@@ -306,8 +306,8 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     private Boolean checkUsernamePattern(){
         String usernameRegex="[a-zA-Z]+[a-zA-Z0-9_]*@([A-Za-z0-9]+.)+[A-Za-z0-9]+";
 
-        String usernameRegex1="[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+){1,2}[A-Za-z0-9]{1,}";;
-         
+        String usernameRegex1="[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+.){1,2}[A-Za-z0-9]{1,}";
+        // String usernameRegex1="[A-Za-z0-9]{1,}[a-zA-Z0-9_]{0,}@([A-Za-z0-9]{1,}+.){1,2}[A-Za-z0-9]{1,}";;
         boolean b = Pattern.matches(usernameRegex1, txtUser.getText());
         
         return !b;
