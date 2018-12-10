@@ -1,3 +1,4 @@
 # Ignore all .class files
 *.class
 /Lab5Prep/dist/
+/FinalProjWinningPig/nbproject/private/

@@ -1,0 +1,63 @@
+Book,Student,Librarian,Status
+Atlas Shrugged: Part II,stu1,lib1,Accept
+Atlas Shrugged: Part II,stu2,lib1,Accept
+Atlas Shrugged: Part II,stu1,lib2,Returned
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu2,,Sent
+Atlas Shrugged: Part II,stu2,lib3,Returned
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu3,lib2,Returned
+Atlas Shrugged: Part II,stu3,,Sent
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Atlas Shrugged: Part II,stu3,lib3,Decline
+Atlas Shrugged: Part II,stu3,lib3,Decline
+Atlas Shrugged: Part II,stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu3,lib2,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu3,,Sent
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu3,lib3,Decline
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu3,lib3,Decline
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Soldier of Orange (a.k.a. Survival Run) (Soldaat van Oranje),stu1,lib1,Returned
+Spider-Man: The Ultimate Villain Showdown,stu1,lib1,Returned
+Spider-Man: The Ultimate Villain Showdown,stu3,,Sent
+Spider-Man: The Ultimate Villain Showdown,stu3,lib2,Returned
+Spider-Man: The Ultimate Villain Showdown,stu1,lib1,Returned
+Spider-Man: The Ultimate Villain Showdown,stu1,lib1,Returned
+Spider-Man: The Ultimate Villain Showdown,stu3,lib3,Returned
+Spider-Man: The Ultimate Villain Showdown,stu3,,Sent
+Spider-Man: The Ultimate Villain Showdown,stu1,lib1,Returned
+The Losers,stu1,lib1,Returned
+The Losers,stu2,lib2,Decline
+The Losers,stu2,lib3,Accept
+The Losers,stu1,lib1,Accept
+The Losers,stu1,lib1,Returned
+The Losers,stu3,lib2,Returned
+The Losers,stu3,,Sent
+Alone (Issiz adam),stu1,lib1,Returned
+Alone (Issiz adam),stu1,lib1,Returned
+Alone (Issiz adam),stu1,lib1,Decline
+Alone (Issiz adam),stu3,lib2,Accept
+Alone (Issiz adam),stu3,lib2,Decline
+Alone (Issiz adam),stu1,lib1,Accept
+Alone (Issiz adam),stu2,lib2,Accept
+Queen of the Damned,stu2,lib3,Returned
+Queen of the Damned,stu1,lib1,Returned
+Queen of the Damned,stu3,,Sent
+Queen of the Damned,stu3,lib2,Returned
+Flodder,stu1,lib1,Returned
+Flodder,stu2,lib2,Decline
+Flodder,stu3,lib2,Accept
+And You Thought Your Parents Were Weird,stu3,lib2,Accept
+And You Thought Your Parents Were Weird,stu1,lib1,Returned
+Cabin Fever: Patient Zero,stu1,lib1,Returned
+Beyond the Sea,stu1,,Sent
+Jay-Z: Made in America,stu3,lib2,Returned
+In My Skin (Dans ma Peau),stu1,lib1,Decline
+Gojoe: Spirit War Chronicle (Gojo reisenki: Gojoe),stu2,lib2,Accept
